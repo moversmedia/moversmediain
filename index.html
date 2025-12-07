@@ -1,39 +1,285 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Services - Home</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Premium digital marketing services — SEO, Ads, Social Media, Content & Creative. Results-driven campaigns for growth." />
+  <title>MoversMedia — Digital Marketing Agency</title>
+
+  <!-- Tailwind via CDN (good for prototypes) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --accent:#06b6d4; --muted:#6b7280 }
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    /* subtle glass card */
+    .glass { background: rgba(255,255,255,0.06); backdrop-filter: blur(6px); border: 1px solid rgba(255,255,255,0.06) }
+    /* animated underline */
+    .underline-anim { position:relative }
+    .underline-anim::after{ content:""; position:absolute; left:0; bottom:-6px; height:3px; width:0; background:linear-gradient(90deg,var(--accent),#7c3aed); transition:width .35s ease }
+    .underline-anim:hover::after{ width:100% }
+    /* hero blob */
+    .blob { filter: blur(40px); opacity:0.7 }
+    /* floating animation */
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+    .floaty{animation:floaty 6s ease-in-out infinite}
+    /* WhatsApp button */
+    .whatsapp-btn{position:fixed;right:20px;bottom:20px;background:linear-gradient(135deg,#10b981,#06b6d4);color:white;padding:14px;border-radius:9999px;box-shadow:0 10px 30px rgba(6,182,212,0.18);z-index:60}
+  </style>
 </head>
-<body>
+<body class="bg-gradient-to-br from-[#050816] via-[#071238] to-[#0b1228] text-slate-100 antialiased">
 
-<header class="header">
-    <h1 class="logo">DigitalX</h1>
-    <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="contact.html">Contact Us</a>
+  <!-- Header / Nav -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-black/30 max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
+    <a href="#home" class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-2xl bg-gradient-to-r from-purple-600 to-cyan-400 flex items-center justify-center text-white font-bold shadow-lg">MM</div>
+      <div>
+        <h1 class="text-lg font-semibold">MoversMedia</h1>
+        <p class="text-xs text-slate-400 -mt-1">Digital Growth & Creative</p>
+      </div>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-6 text-slate-300">
+      <a class="underline-anim" href="#home">Home</a>
+      <a class="underline-anim" href="#about">About</a>
+      <a class="underline-anim" href="#services">Services</a>
+      <a class="underline-anim" href="#contact">Contact</a>
+      <a href="#" class="ml-4 inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-cyan-400 px-4 py-2 rounded-2xl text-sm font-semibold shadow-lg">Get a Quote</a>
     </nav>
-</header>
 
-<section class="hero-section">
-    <h2>Grow Your Business With <span>Premium Digital Services</span></h2>
-    <p>Creative solutions to boost your brand, attract customers, and scale your online presence.</p>
-    <a href="contact.html"><button class="hero-btn">Get in Touch</button></a>
-</section>
-
-<section class="services">
-    <h2 class="section-title">Our Digital Services</h2>
-
-    <div class="service-grid">
-        <div class="service-box">Website Design</div>
-        <div class="service-box">Logo & Branding</div>
-        <div class="service-box">Social Media Ads</div>
-        <div class="service-box">Video Editing</div>
-        <div class="service-box">Digital Marketing</div>
-        <div class="service-box">SEO Optimization</div>
+    <!-- mobile menu button -->
+    <div class="md:hidden">
+      <button id="menuBtn" class="p-2 rounded-md glass">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-slate-100" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
-</section>
+  </header>
 
+  <!-- Mobile nav panel -->
+  <div id="mobileNav" class="hidden md:hidden px-6">
+    <div class="max-w-3xl mx-auto bg-slate-900/40 p-4 rounded-xl glass">
+      <a class="block py-2" href="#home">Home</a>
+      <a class="block py-2" href="#about">About</a>
+      <a class="block py-2" href="#services">Services</a>
+      <a class="block py-2" href="#contact">Contact</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-12 items-center">
+
+      <div>
+        <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs bg-white/6 text-slate-200"> 
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m4 0h.01M12 12v.01"/></svg>
+          Performance-first marketing
+        </p>
+
+        <h2 class="text-4xl md:text-5xl font-extrabold mt-6 leading-tight">We help brands scale with <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-purple-300">data-driven</span> digital marketing</h2>
+        <p class="mt-4 text-slate-300 max-w-xl">Full-service campaigns: paid ads, SEO, social media, content & creative design. We focus on ROI, not vanity metrics.</p>
+
+        <div class="mt-8 flex gap-4">
+          <a href="#contact" class="inline-flex items-center gap-3 bg-white text-slate-900 px-5 py-3 rounded-2xl font-semibold shadow-lg">Start a Project</a>
+          <a href="#services" class="inline-flex items-center gap-3 border border-slate-700 rounded-2xl px-4 py-3 text-slate-200">Our Services</a>
+        </div>
+
+        <div class="mt-8 flex items-center gap-6 text-sm text-slate-400">
+          <div>
+            <p class="text-xl font-bold text-white">+120%</p>
+            <p class="mt-1">Avg. lead growth in 90 days</p>
+          </div>
+          <div>
+            <p class="text-xl font-bold text-white">₹499</p>
+            <p class="mt-1">Starter campaign management</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- right side hero visual -->
+      <div class="relative">
+        <div class="absolute -right-20 -top-10 w-72 h-72 rounded-full bg-gradient-to-r from-purple-500 to-cyan-300 blob floaty opacity-60"></div>
+        <div class="glass p-6 rounded-2xl shadow-2xl relative z-10">
+          <h3 class="text-lg font-semibold">Campaign snapshot</h3>
+          <div class="mt-4 grid grid-cols-3 gap-4">
+            <div class="p-3 bg-slate-900/60 rounded-lg text-center">
+              <p class="text-xs text-slate-400">Monthly clicks</p>
+              <p class="text-xl font-bold">48K</p>
+            </div>
+            <div class="p-3 bg-slate-900/60 rounded-lg text-center">
+              <p class="text-xs text-slate-400">Conversions</p>
+              <p class="text-xl font-bold">1.2K</p>
+            </div>
+            <div class="p-3 bg-slate-900/60 rounded-lg text-center">
+              <p class="text-xs text-slate-400">CTR</p>
+              <p class="text-xl font-bold">4.2%</p>
+            </div>
+          </div>
+
+          <div class="mt-5">
+            <p class="text-sm text-slate-400">Recent wins</p>
+            <ul class="mt-3 text-slate-300 text-sm space-y-2">
+              <li>Scaled local lead gen by 180% in 60 days</li>
+              <li>Reduced CPA by 45% for an e‑commerce client</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h3 class="text-3xl font-extrabold">About MoversMedia</h3>
+        <p class="mt-4 text-slate-300 max-w-xl">A boutique digital marketing agency that blends creative design with data science. We build campaigns that attract, convert and retain customers for businesses of all sizes.</p>
+
+        <ul class="mt-6 grid grid-cols-2 gap-3 text-sm text-slate-300">
+          <li>✔️ Strategy & planning</li>
+          <li>✔️ Paid Ads (Search & Social)</li>
+          <li>✔️ SEO & Content</li>
+          <li>✔️ Design & Creative</li>
+        </ul>
+
+        <div class="mt-6 flex gap-4">
+          <a href="#contact" class="px-4 py-2 bg-gradient-to-r from-purple-600 to-cyan-400 rounded-xl font-semibold">Work with us</a>
+          <a href="#services" class="px-4 py-2 border border-slate-700 rounded-xl">See packages</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="bg-slate-900/30 p-6 rounded-2xl glass">
+          <h4 class="font-semibold">How we work</h4>
+          <ol class="mt-4 text-slate-300 list-decimal list-inside space-y-2 text-sm">
+            <li>Discovery & KPI alignment</li>
+            <li>Strategy & creative plan</li>
+            <li>Launch, measure & iterate</li>
+          </ol>
+
+          <div class="mt-6 grid grid-cols-3 gap-3">
+            <div class="p-3 text-center">
+              <p class="text-xs text-slate-400">Avg. ROI</p>
+              <p class="font-bold text-white">5x</p>
+            </div>
+            <div class="p-3 text-center">
+              <p class="text-xs text-slate-400">Avg. response</p>
+              <p class="font-bold text-white">24h</p>
+            </div>
+            <div class="p-3 text-center">
+              <p class="text-xs text-slate-400">Platforms</p>
+              <p class="font-bold text-white">Google, Meta</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="max-w-6xl mx-auto px-6 py-16">
+    <h3 class="text-3xl font-extrabold">Services</h3>
+    <p class="mt-2 text-slate-400 max-w-2xl">End-to-end marketing services designed to move the needle.</p>
+
+    <div class="mt-8 grid md:grid-cols-3 gap-6">
+      <article class="p-6 rounded-2xl glass shadow-sm">
+        <h4 class="font-semibold">Paid Ads (Search & Social)</h4>
+        <p class="mt-2 text-sm text-slate-300">Targeted campaigns with creative A/B testing and conversion tracking.</p>
+      </article>
+      <article class="p-6 rounded-2xl glass shadow-sm">
+        <h4 class="font-semibold">SEO & Content</h4>
+        <p class="mt-2 text-sm text-slate-300">Technical SEO, on‑page optimization, content strategy and link building.</p>
+      </article>
+      <article class="p-6 rounded-2xl glass shadow-sm">
+        <h4 class="font-semibold">Creative & Design</h4>
+        <p class="mt-2 text-sm text-slate-300">Branding, social creatives, short-form video and landing page design.</p>
+      </article>
+
+      <article class="p-6 rounded-2xl glass shadow-sm">
+        <h4 class="font-semibold">Analytics & Reporting</h4>
+        <p class="mt-2 text-sm text-slate-300">Custom dashboards, attribution modeling & weekly insights.</p>
+      </article>
+      <article class="p-6 rounded-2xl glass shadow-sm">
+        <h4 class="font-semibold">Email & Automation</h4>
+        <p class="mt-2 text-sm text-slate-300">Lead magnets, drip sequences and conversion-focused funnels.</p>
+      </article>
+      <article class="p-6 rounded-2xl glass shadow-sm">
+        <h4 class="font-semibold">Strategy Workshops</h4>
+        <p class="mt-2 text-sm text-slate-300">Hands-on sessions to align on growth goals and build an execution roadmap.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto px-6 py-16">
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div>
+        <h3 class="text-3xl font-extrabold">Contact us</h3>
+        <p class="mt-3 text-slate-300">Tell us about your project and we’ll recommend the fastest path to growth.</p>
+
+        <div class="mt-6 space-y-4 text-sm text-slate-300">
+          <p>📞 <a href="tel:+919061409038" class="underline">+91 90614 09038</a></p>
+          <p>✉️ <a href="mailto:hello@yourdomain.com" class="underline">hello@yourdomain.com</a></p>
+          <p>📍 Kerala, India</p>
+        </div>
+
+        <div class="mt-6">
+          <h4 class="text-sm text-slate-400">Office hours</h4>
+          <p class="text-sm text-slate-300">Mon - Fri: 9:30 AM — 6:30 PM</p>
+        </div>
+      </div>
+
+      <form action="https://formsubmit.co/your@email.com" method="POST" class="bg-slate-900/30 p-6 rounded-2xl glass">
+        <!-- Replace the action with your FormSubmit or server endpoint -->
+        <input type="hidden" name="_captcha" value="false">
+        <label class="block text-sm text-slate-300">Name</label>
+        <input name="name" required class="w-full mt-2 p-3 rounded-lg bg-transparent border border-slate-700 text-slate-100" placeholder="Your full name">
+
+        <label class="block text-sm text-slate-300 mt-4">Email</label>
+        <input name="email" type="email" required class="w-full mt-2 p-3 rounded-lg bg-transparent border border-slate-700 text-slate-100" placeholder="you@company.com">
+
+        <label class="block text-sm text-slate-300 mt-4">Message</label>
+        <textarea name="message" rows="5" required class="w-full mt-2 p-3 rounded-lg bg-transparent border border-slate-700 text-slate-100" placeholder="Tell us about your goals"></textarea>
+
+        <div class="mt-4 flex gap-3">
+          <button type="submit" class="px-4 py-3 bg-gradient-to-r from-purple-600 to-cyan-400 rounded-2xl font-semibold">Send message</button>
+          <a href="mailto:hello@yourdomain.com" class="px-4 py-3 border border-slate-700 rounded-2xl">Email us</a>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800/40 mt-8 py-8">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-slate-400 text-sm">© MoversMedia • Premium digital marketing services</p>
+      <div class="flex items-center gap-4 text-sm text-slate-400">
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp floating button -->
+  <a class="whatsapp-btn" href="https://wa.me/919061409038" target="_blank" aria-label="Chat on WhatsApp">💬 Chat</a>
+
+  <script>
+    // mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn')
+    const mobileNav = document.getElementById('mobileNav')
+    menuBtn && menuBtn.addEventListener('click', ()=> mobileNav.classList.toggle('hidden'))
+
+    // simple smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}) }
+      })
+    })
+  </script>
 </body>
 </html>
